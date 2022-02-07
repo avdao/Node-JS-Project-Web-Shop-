@@ -1,0 +1,38 @@
+#contet{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#contetone{
+    width: 1200px;
+
+
+}
+#message{
+    width: 120px;
+}
+#message h1{
+    background-color: #00B7FF;
+    color: white;
+
+    width: 200px;
+    text-align: center;
+}
+#randomOne{
+    display: flex;
+    justify-content: space-between;
+}
+#contetone h1{
+    background-color: #00B7FF;
+    color: white;
+    border-radius: 50%;
+    width: 200px;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+
+    #contet{
+        display: block;
+    }
+}

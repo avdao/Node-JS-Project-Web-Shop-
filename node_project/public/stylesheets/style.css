@@ -1,0 +1,59 @@
+#wrapper2{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#placeForImg2{
+    padding: 10px;
+}
+
+
+#placeForImg2 img{
+    height: 450px;
+}
+#placeForForms1{
+    height: 800px;
+}
+#placeForForms1 input{
+    padding: 15px;
+    margin: 30px;
+    border-radius: 15px;
+
+
+}
+#placeForForms1 h1{
+    text-align: center;
+    color: white;
+}
+
+#placeForForms1{
+    margin: 40px;
+    padding: 30px;
+    height: 600px;
+    border: 1px solid #00B7FF;
+    border-radius: 10%;
+    background-color: #00B7FF;
+}
+
+@media screen and (max-width: 600px) {
+
+    #wrapper2{
+        display: block;
+
+
+    }
+    #placeForImg2 img{
+        width: 400px;
+    }
+
+    #placeForForms input{
+
+        width: 230px;
+    }
+
+    #placeForForms1{
+        height: 800px;
+    }
+
+}

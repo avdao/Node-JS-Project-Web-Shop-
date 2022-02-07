@@ -1,0 +1,26 @@
+body{
+    position: relative;
+    top: 0px;
+}
+
+#wrapper{
+    display: flex;
+    justify-content: space-around;
+  background-color: #00B7FF;
+  width: 100%;
+}
+#placeForImg img{
+    width: 80px;
+    height: 80px;
+}
+#placeForLinks a{
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+}
+#placeForLinks a:hover{
+    background-color: white;
+    color: #00B7FF;
+}

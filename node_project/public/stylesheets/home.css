@@ -1,0 +1,49 @@
+#placeForBackground{
+    height: 400px;
+
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+#myVideo {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.content {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin: 100px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    height: 200px;
+}
+
+
+ a{
+    background-color: #00B7FF;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .content{
+        height: 300px;
+        width: 250px;
+    }
+}
