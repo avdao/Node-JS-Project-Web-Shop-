@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+<style>
+   #klokan {
+    border: 1px solid #00B7FF;
+        height: 500px;
+       display: flex;
+       justify-content: center;
+    }
+
+    #klokan a{
+        background-color: #00B7FF;
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+        position: relative;
+top: 50px;
+        left: -300px;
+        text-align: center;
+
+    }
+</style>
+    <title>Home</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="placeForImg">
+        <img src="/images/img5.png" alt="loading"/>
+    </div>
+
+
+    <div id="placeForLinks">
+        <a href="/trgovina">Pogledaj Trgovine</a>
+        <a href="/trgovina/poruke">Poruke</a>
+
+        <a href="/narudjba/mojaKorpa/<%= id %>">Moja Korpa</a>
+        <a href="/trgovac/interesi/<%= id %>">Pogledaj svoja interesovanja</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+    <% object.forEach(function(data){ %>
+        <div id="klokan">
+<div>
+            <h1><%= data.team_name%></h1>
+            <img src="<%= data.meal_name%>" alt="slika" width='300px' height="300px" >
+            <a href="/artikal/123/artikal/<%= data.team_name1%>">Pogledaj informacije o Artiklu</a>
+            <% if(arhiviran===true){
+
+            } else {%>
+
+            <a href="/narudjba/12/<%= data.team_name1%>">Naruci</a>
+            <%}%></div>
+        </div>
+
+    <%})%>
+
+</body>
+</html>

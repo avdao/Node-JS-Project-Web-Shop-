@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <link rel='stylesheet' href='/stylesheets/admin.css' />
+    <title>Home</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="placeForImg">
+        <img src="/images/img5.png" alt="loading"/>
+    </div>
+
+
+    <div id="placeForLinks">
+        <a href="/trgovina/arhivirajKorisnika">Arhiviraj Korisnika</a>
+        <a href="/trgovina/posaljiPoruku">Grupne Poruke</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+
+
+
+<table>
+    <% korisnik.forEach(function(data){ %>
+    <tr>
+        <form action="/trgovina/arhiviraj" method="post">
+            <td>
+                <h1><%=data.username %></h1>
+                <input type="hidden" name="username" value="<%= data.username%>">
+                <input type="hidden" name="idAdmin" value="<%=data._id %>">
+            </td>
+            <td>
+                <input type="submit" value="Arhiviraj Korisnika">
+            </td>
+        </form>
+    </tr>
+    <%})%>
+</table>
+
+
+
+</body>
+</html>

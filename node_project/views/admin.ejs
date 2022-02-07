@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <link rel='stylesheet' href='/stylesheets/admin.css' />
+    <title>Home</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="placeForImg">
+        <img src="/images/img5.png" alt="loading"/>
+    </div>
+
+
+    <div id="placeForLinks">
+        <a href="/trgovina/arhivirajKorisnika">Arhiviraj Korisnika</a>
+        <a href="/trgovina/posaljiPoruku">Grupne Poruke</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+
+
+
+<div id="firstContetFirst">
+    <div><h1>Dodaj Kategoriju Trgovine</h1>
+        <form method="post" action="/trgovina/kategorijaa">
+            <input name="kategorija" type="text"/>
+            <input type="submit">
+        </form></div>
+    <div><h1>Dodaj Kategoriju Artikala</h1>
+        <form method="post" action="/trgovina/kategorijaArtikla">
+            <input name="kategorija" type="text"/>
+            <input type="submit">
+        </form>
+    </div>
+</div>
+
+<table>
+    <% korisnik.forEach(function(data){ %>
+    <tr>
+        <form action="/trgovina/pukniBan" method="post">
+        <td>
+            <h1><%=data.username %></h1>
+            <input type="hidden" name="username" value="<%= data.username%>">
+            <input type="hidden" name="idAdmin" value="<%=data._id %>">
+        </td>
+        <td>
+            <input type="submit" value="Banuj Korisnika">
+        </td>
+        </form>
+    </tr>
+    <%})%>
+</table>
+
+
+
+
+
+
+
+
+
+
+<canvas id="myChart" width="200px" height="200px"></canvas>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Trgovci', 'Kupci'],
+            datasets: [{
+                label: '# of Votes',
+                data: [ <%= bt%>, <%= bk%>],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 0.5
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

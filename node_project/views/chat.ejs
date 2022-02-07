@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat app</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+</head>
+<body>
+
+<h1 id="poruke"></h1>
+<% poruke.forEach(function(data){ %>
+
+    <h1><%=data %></h1>
+
+<%})%>
+
+<input type="hidden" id="c" value="<%= poslao1%>" />
+<input type="text" id="tekst_poruke" />
+<input type="button" value="Pošalji" onclick="posaljiPoruku()">
+<script>
+
+    var socket=io.connect('ws://localhost:3000');
+    toastr.options = {
+        timeOut: 2000,
+        positionClass : 'toast-bottom-right',
+        extendedTimeOut: 0,
+        fadeOut: 0,
+        fadeIn: 0,
+        showDuration: 0,
+        hideDuration: 0,
+        debug: false
+    };
+    socket.on('new-notification', (resp) => {
+        toastr.success(resp, 'New notification')
+    });
+    socket.on('porukaSaServera', function (d){
+        document.getElementById('poruke').innerHTML+=d;
+    })
+
+
+  /*  socket.on('sve_poruke', function (d){
+        console.log()
+
+    document.getElementById('poruke').innerHTML=d;
+
+
+
+
+
+
+    })*/
+    socket.on('end', function (){
+       socket.disconnect(0);
+    })
+
+
+
+function posaljiPoruku(){
+    let porukas=document.getElementById('c').value;
+        let poruka=document.getElementById('tekst_poruke').value+' ';
+let rijeci=porukas+":"+poruka
+    console.log(rijeci)
+    socket.emit("send-notification", poruka,{'mojaPoruka':poruka});
+       socket.emit('mojaPoruka',porukas+":"+poruka);
+
+
+
+}
+
+
+</script>
+
+
+
+</body>
+</html>

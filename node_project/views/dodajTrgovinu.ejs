@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="placeForImg">
+        <img src="/images/img5.png" alt="loading"/>
+    </div>
+
+
+    <div id="placeForLinks">
+        <a href="/trgovina/dodajTrgovinu">Dodaj Trgovinu</a>
+        <a href="/trgovina/tvojeTrgovine/<%= id %>">Pogledaj svoje trgovine</a>
+        <a href="/trgovina/poruke">Poruke</a>
+        <a href="/narudjba/<%= id %>">Narudjba</a>
+        <a href="/narudjba/isporucenaNarudjba">Pogledaj isporucene Narudjba</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+<h1>Dodaj Trgovinu</h1>
+
+<% if (typeof message !== 'undefined' ) { %>
+    <p><%= message %></p>
+<% } %>
+
+<form action="/trgovina/dodajTrgovinu" method="post">
+    <div>
+        <input type="text" id="name" name="name" placeholder="Unesite ime trgobine:" required />
+    </div>
+    <div>
+        <input type="text" id="telefon" name="telefon" placeholder="Unesite broj telefona::" required />
+    </div>
+    <div>
+        <input type="text" id="email" name="email" placeholder="Unesite email:" required />
+    </div>
+    <div>
+        <input type="text" id="adresa" name="adresa" placeholder="Unesite adresu:" required />
+    </div>
+    <div class="form-group">
+        <label >Kategorija:</label>
+        <select name="category">
+            <% kategorija.forEach(function(data){ %>
+                <option value="<%= data.kategorija%>"><%= data.kategorija %></option>
+            <%})%>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Dodaj" />
+    </div>
+</form>
+</body>
+</html>

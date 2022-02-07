@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link rel='stylesheet' href='/stylesheets/interesi.css' />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div><%- include('header') -%></div>
+<div id="wrapperr">
+
+<div>
+    <img src="/images/img.jpg" style="padding: 10px" alt="nn"/>
+
+<h1 style="color: #00B7FF;text-align: center;">Unesi svoja interesovanja:</h1>
+
+
+        <form method="post" action="/trgovac/interesi1" style="text-align: center; margin: 10px" >
+            <input type="text" name="interesi" id='interesi'  placeholder="Unesi ime:" style="margin: 10px"/>
+
+            <br>
+
+            <input  id="submit" type="submit" onsubmit="Click">
+
+
+
+        </form>
+    <a href="/login"  style="position: relative;left: 280px">Idi dalje</a>
+
+
+
+    <% trgovina.forEach(function(data){ %>
+        <li id="id"  style="text-align: center"><%= data.interesovanja %></li>
+    <%})%>
+
+
+</div>
+</div>
+</body>
+</html>

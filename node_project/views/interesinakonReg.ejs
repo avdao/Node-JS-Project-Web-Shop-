@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+</head>
+<body>
+<div id="wrapper">
+    <div id="placeForImg">
+        <img src="/images/img5.png" alt="loading"/>
+    </div>
+
+
+    <div id="placeForLinks">
+        <a href="/trgovina">Pogledaj Trgovine</a>
+        <a href="/trgovina/poruke">Poruke</a>
+
+        <a href="/narudjba/mojaKorpa/<%= id %>">Moja Korpa</a>
+        <a href="/trgovac/interesi/<%= id %>">Pogledaj svoja interesovanja</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+<div >
+    <h1>Unesi svoja interesovanja:</h1>
+
+    <form  action="/trgovac/interesi" method="post">
+        <input type="text" id="interesi" name="interesi" placeholder="Unesi ime:"/>
+        <br>
+
+        <input id='submit' type="submit" >
+
+
+
+    </form>
+
+
+    <% trgovina.forEach(function(data){ %>
+        <li id="id"><%= data.interesovanja %></li>
+    <%})%>
+
+
+
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

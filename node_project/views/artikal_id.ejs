@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <title>Home</title>
+</head>
+<body>
+<div><%- include('header') -%></div>
+
+
+
+
+
+    <div>
+        <h1>Naziv Artikla:<%= artikalll.name%></h1>
+        <h1>Kratki Opis:<%= artikalll.kratkiOpis%></h1>
+        <h1>Cijena:<%= artikalll.cijena%></h1>
+        <h1>Slika:</h1>
+        <img src="<%= artikalll.avatar%>" alt="slika" width='300px' height="300px" >
+
+    </div>
+
+
+<form action="/artikal/ocijeniArtikal" method="post">
+    <label>Dodaj Komentar o Artiklu:</label>
+    <input type="hidden" name="idA" value="<%= artikalll._id%>">
+
+    <input type="text" name="komentar"/>
+
+    <label>Ocijeni Artikal</label>
+    <select name="ocijena123" >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <input type="submit">
+
+
+
+</form>
+
+
+    <% objekat.forEach(function(data){ %>
+        <p><%= data.kupac %></p>
+<p><%= data.comment%></p>
+<hr>
+    <%})%>
+
+
+
+
+</body>
+</html>
