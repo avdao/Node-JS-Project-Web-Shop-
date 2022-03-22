@@ -2,6 +2,7 @@
 
 First of all go to :
 - npm install
-And after that you can run:
+
+and after that you can run:
 - npm start
 
